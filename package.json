@@ -1,0 +1,17 @@
+{
+  "name": "restify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsnd server.ts"
+  },
+  "devDependencies": {
+    "@types/restify": "^8.5.4",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "restify": "^8.6.0"
+  }
+}
