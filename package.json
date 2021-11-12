@@ -4,9 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "typeorm": "tsnd ./node_modules/typeorm/cli",
     "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn --exit-child src/server.ts"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/restify": "^8.5.4",
+    "@types/restify-errors": "^4.3.4",
+    "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
     "eslint": "^7.27.0",
@@ -17,11 +23,18 @@
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-prettier": "^3.4.0",
     "prettier": "^2.3.0",
-    "@types/restify": "^8.5.4",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "restify": "^8.6.0"
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "restify": "^8.6.0",
+    "restify-errors": "^8.0.2",
+    "typeorm": "^0.2.40",
+    "uuid": "^8.3.2"
   }
 }

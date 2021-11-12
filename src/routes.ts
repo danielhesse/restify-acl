@@ -1,11 +1,13 @@
-import { Request, Response, Server } from 'restify';
+import { Server } from 'restify';
+
+import { AuthenticateUserController } from './useCases/AuthenticateUser/AuthenticateUserController';
+import { CreateUserController } from './useCases/CreateUser/CreateUserController';
+
+const createUserController = new CreateUserController();
+const authenticateUserController = new AuthenticateUserController();
 
 export const routes = (route: Server) => {
-  route.get('/contatos', (_: Request, response: Response) => {
-    return response.json({ message: 'contatos' });
-  });
+  route.post('/users', createUserController.handle);
 
-  route.get('/', (_: Request, response: Response) => {
-    return response.json({ message: 'Hello World!' });
-  });
+  route.post('/authenticate', authenticateUserController.handle);
 };

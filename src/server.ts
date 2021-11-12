@@ -1,8 +1,15 @@
+import 'reflect-metadata';
+import 'dotenv/config';
+
 import restify from 'restify';
 
 import { routes } from './routes';
 
-const server = restify.createServer();
+import './database';
+
+const server = restify.createServer({});
+
+server.use(restify.plugins.bodyParser());
 
 routes(server);
 
