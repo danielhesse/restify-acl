@@ -11,20 +11,20 @@ interface IRequest {
 
 class AuthenticateUser {
   async execute({ email, password }: IRequest) {
-    const existingUser = await UsersRepository().findOne({ email });
+    const userExists = await UsersRepository().findOne({ email });
 
-    if (!existingUser) {
+    if (!userExists) {
       return new BadRequestError('Users does not exists!');
     }
 
-    const passwordMatched = await compare(password, existingUser.password);
+    const passwordMatched = await compare(password, userExists.password);
 
     if (!passwordMatched) {
       return new BadRequestError('User or password is incorrect!');
     }
 
     const token = sign({}, String(process.env.SECRET_JWT), {
-      subject: existingUser.id,
+      subject: userExists.id,
       expiresIn: String(process.env.EXPIRES_IN_JWT),
     });
 
